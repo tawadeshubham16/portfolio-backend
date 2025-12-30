@@ -85,5 +85,5 @@ jobs:
             set -e
             echo "${GHCR_TOKEN}" | docker login ghcr.io -u "${GHCR_USER}" --password-stdin
             docker pull "${IMAGE}"
-            docker service update --with-registry-auth --image "${IMAGE}" "${SERVICE}"
+            docker service update --force --with-registry-auth --image "${IMAGE}" "${SERVICE}"
           EOF
